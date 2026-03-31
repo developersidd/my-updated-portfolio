@@ -1,30 +1,30 @@
 "use client";
- 
 import { AnimatePresence, motion } from "framer-motion";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import Image from "next/image";
 import { useCallback, useEffect, useState } from "react";
- 
- 
+
 interface LightboxProps {
   images: string[];
   initialIndex: number;
   title: string;
   onClose: () => void;
 }
- 
+
 function Lightbox({ images, initialIndex, title, onClose }: LightboxProps) {
   const [current, setCurrent] = useState(initialIndex);
   const [direction, setDirection] = useState(0);
- 
+
   const paginate = useCallback(
     (newDirection: number) => {
       setDirection(newDirection);
-      setCurrent((prev) => (prev + newDirection + images.length) % images.length);
+      setCurrent(
+        (prev) => (prev + newDirection + images.length) % images.length,
+      );
     },
-    [images.length]
+    [images.length],
   );
- 
+
   useEffect(() => {
     const handleKey = (e: KeyboardEvent) => {
       if (e.key === "ArrowRight") paginate(1);
@@ -34,7 +34,7 @@ function Lightbox({ images, initialIndex, title, onClose }: LightboxProps) {
     window.addEventListener("keydown", handleKey);
     return () => window.removeEventListener("keydown", handleKey);
   }, [paginate, onClose]);
- 
+
   const variants = {
     enter: (dir: number) => ({
       x: dir > 0 ? "60%" : "-60%",
@@ -54,7 +54,7 @@ function Lightbox({ images, initialIndex, title, onClose }: LightboxProps) {
       transition: { duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] },
     }),
   };
- 
+
   return (
     <motion.div
       className="fixed inset-0 z-50 flex items-center justify-center"
@@ -71,7 +71,7 @@ function Lightbox({ images, initialIndex, title, onClose }: LightboxProps) {
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
       />
- 
+
       {/* Close */}
       <button
         onClick={onClose}
@@ -79,12 +79,12 @@ function Lightbox({ images, initialIndex, title, onClose }: LightboxProps) {
       >
         <X className="w-5 h-5" />
       </button>
- 
+
       {/* Counter */}
       <div className="absolute top-5 left-1/2 -translate-x-1/2 z-20 px-4 py-1.5 rounded-full bg-white/10 border border-white/15 text-white/70 text-sm font-medium backdrop-blur-sm">
         {current + 1} / {images.length}
       </div>
- 
+
       {/* Main image area */}
       <div className="relative z-10 flex items-center justify-center w-full h-full px-16 md:px-24">
         {/* Prev */}
@@ -94,9 +94,9 @@ function Lightbox({ images, initialIndex, title, onClose }: LightboxProps) {
         >
           <ChevronLeft className="w-5 h-5" />
         </button>
- 
+
         {/* Image with slide animation */}
-        <div className="relative w-full max-w-5xl aspect-video rounded-2xl overflow-hidden border border-white/10 shadow-2xl shadow-black/60">
+        <div className="relative w-full max-w-7xl aspect-video rounded-2xl overflow-hidden border border-white/10 shadow-2xl shadow-black/60">
           <AnimatePresence mode="wait" custom={direction}>
             <motion.div
               key={current}
@@ -120,7 +120,7 @@ function Lightbox({ images, initialIndex, title, onClose }: LightboxProps) {
             </motion.div>
           </AnimatePresence>
         </div>
- 
+
         {/* Next */}
         <button
           onClick={() => paginate(1)}
@@ -129,7 +129,7 @@ function Lightbox({ images, initialIndex, title, onClose }: LightboxProps) {
           <ChevronRight className="w-5 h-5" />
         </button>
       </div>
- 
+
       {/* Thumbnail strip */}
       <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex gap-2 px-4 py-2 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm">
         {images.map((img, i) => (
@@ -158,3 +158,4 @@ function Lightbox({ images, initialIndex, title, onClose }: LightboxProps) {
     </motion.div>
   );
 }
+export default Lightbox;

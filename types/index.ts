@@ -2,7 +2,7 @@ type ProjectType = {
   id: string;
   title: string;
   category: string;
-  fullSizeImage: string;
+  fullSizeImage?: string;
   image: string;
   gallery: string[];
   description: string;
@@ -11,6 +11,7 @@ type ProjectType = {
   features: string[];
   github: string;
   live: string;
+  challenges?: { title: string; description: string; solution?: string }[]
 };
 
 export type { ProjectType };

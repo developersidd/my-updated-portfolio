@@ -1,4 +1,6 @@
-export const projects = [
+import { ProjectType } from "@/types";
+
+export const projects: ProjectType[] = [
   {
     id: "1",
     title: "Luxury Auto Trader",
@@ -67,6 +69,16 @@ export const projects = [
     ],
     github: "https://github.com/developersidd/play-platform-frontend",
     live: "https://play-platform.vercel.app/",
+    // add challenges
+    challenges: [
+      {
+        title: "Real-time Notifications",
+        description:
+          "Implementing real-time notifications for user interactions (likes, comments, subscriptions) was a significant challenge. I used Socket.io to establish a WebSocket connection between the client and server, allowing for instant updates without page refreshes. This required careful handling of connection states and ensuring that notifications were delivered reliably even under high load.",
+        solution:
+          "To ensure reliability, I implemented a retry mechanism on the client side to handle potential disconnections. Additionally, I optimized the server-side event handling to minimize latency and prevent bottlenecks during peak usage.",
+      },
+    ],
   },
   {
     id: "3",
