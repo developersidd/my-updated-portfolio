@@ -1,0 +1,30 @@
+'use client';
+
+import { motion } from 'motion/react';
+import { Code2 } from 'lucide-react';
+
+export function Navbar() {
+  return (
+    <motion.nav 
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      className="fixed top-0 left-0 right-0 z-50 border-b border-gray-800 bg-black/50 backdrop-blur-md"
+    >
+      <div className="container mx-auto px-4 h-16 flex items-center justify-between">
+        <div className="flex items-center space-x-2 text-white font-bold text-xl">
+          <Code2 className="w-6 h-6 text-emerald-400" />
+          <span>AB SIDDIk</span>
+        </div>
+        <div className="hidden md:flex items-center space-x-8 text-sm font-medium text-gray-400">
+          <a href="#about" className="hover:text-white transition-colors">About</a>
+          <a href="#skills" className="hover:text-white transition-colors">Skills</a>
+          <a href="#projects" className="hover:text-white transition-colors">Projects</a>
+          <a href="#contact" className="hover:text-white transition-colors">Contact</a>
+        </div>
+        <a href="https://drive.google.com/uc?export=download&id=1lyAH0qkAF7G3EWdWhKs7nz2GLfZjt6K0" download className="px-4 py-2 rounded-full bg-white text-black text-sm font-semibold hover:bg-gray-200 transition-colors">
+          Resume
+        </a>
+      </div>
+    </motion.nav>
+  );
+}
