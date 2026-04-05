@@ -3,6 +3,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import Image from "next/image";
 import { useCallback, useEffect, useState } from "react";
+import { RemoveScrollBar } from "react-remove-scroll-bar";
 
 interface LightboxProps {
   images: string[];
@@ -63,6 +64,7 @@ function Lightbox({ images, initialIndex, title, onClose }: LightboxProps) {
       exit={{ opacity: 0 }}
       transition={{ duration: 0.25 }}
     >
+      <RemoveScrollBar />
       {/* Backdrop */}
       <motion.div
         className="absolute inset-0 bg-black/90 backdrop-blur-xl"
@@ -102,18 +104,20 @@ function Lightbox({ images, initialIndex, title, onClose }: LightboxProps) {
               key={current}
               custom={direction}
               variants={variants}
-              initial="enter"
               animate="center"
+              initial="enter"
               exit="exit"
               className="absolute inset-0"
             >
               <Image
                 src={images[current]}
                 alt={`${title} screenshot ${current + 1}`}
-                fill
-                className="object-cover"
+                //fill // 
+                className="object-fill h-full"
                 referrerPolicy="no-referrer"
                 priority
+                width={1600}
+                height={1200}
               />
               {/* Subtle gradient vignette */}
               <div className="absolute inset-0 shadow-[inset_0_0_80px_rgba(0,0,0,0.3)] pointer-events-none rounded-2xl" />

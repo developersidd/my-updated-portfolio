@@ -9,7 +9,7 @@ type ProjectType = {
   longDescription: string;
   tech: string[];
   features: string[];
-  github: string;
+  github?: string;
   live: string;
   challenges?: { title: string; description: string; solution?: string }[]
 };

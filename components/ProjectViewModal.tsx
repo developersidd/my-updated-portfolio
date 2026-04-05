@@ -212,11 +212,11 @@ const ProjectViewModal = ({
                     alt={title}
                     width={1500}
                     height={1200}
-                    className="w-full h-auto object-cover group-hover:scale-[1.01] transition-transform duration-700 ease-out"
+                    className="w-full h-full group-hover:scale-[1.01] transition-transform duration-700 ease-out"
                   />
 
                   {/* Hover overlay hint */}
-                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center pointer-events-none">
+                 {/* <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center pointer-events-none">
                     <span
                       className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium"
                       style={{
@@ -229,7 +229,7 @@ const ProjectViewModal = ({
                       <ArrowUpRight className="w-3.5 h-3.5" />
                       Full Preview
                     </span>
-                  </div>
+                  </div>*/}
                 </motion.div>
               </div>
 

@@ -7,19 +7,33 @@ import Link from "next/link";
 import { useState } from "react";
 import Lightbox from "./LightBox";
 function ProjectDetailsClient({ project }: { project: (typeof projects)[0] }) {
+  const {
+    title,
+    image,
+    live,
+    github,
+    category,
+    description,
+    features,
+    gallery,
+    longDescription,
+    id,
+    challenges,
+    tech,
+  } = project || {};
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
   const openLightbox = (index: number) => setLightboxIndex(index);
   const closeLightbox = () => setLightboxIndex(null);
 
   return (
-    <main className="min-h-screen bg-black text-white pt-24 pb-12">
+    <main className="min-h-screen bg-black text-white pt-12 pb-12">
       <AnimatePresence>
-        {lightboxIndex !== null && project.gallery && (
+        {lightboxIndex !== null && gallery && (
           <Lightbox
-            images={project.gallery}
+            images={gallery}
             initialIndex={lightboxIndex}
-            title={project.title}
+            title={title}
             onClose={closeLightbox}
           />
         )}
@@ -37,8 +51,8 @@ function ProjectDetailsClient({ project }: { project: (typeof projects)[0] }) {
         {/* Hero Image */}
         <div className="relative w-full h-[55vh] md:h-[75vh] rounded-3xl overflow-hidden mb-12 border border-gray-800">
           <Image
-            src={project.image}
-            alt={project.title}
+            src={image}
+            alt={title}
             fill
             className=""
             referrerPolicy="no-referrer"
@@ -48,15 +62,13 @@ function ProjectDetailsClient({ project }: { project: (typeof projects)[0] }) {
           <div className="absolute bottom-0 left-0 p-8 md:p-12 w-full">
             <div className="flex flex-wrap items-center gap-4 mb-4">
               <span className="px-3 py-1 text-xs font-semibold rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
-                {project.category}
+                {category}
               </span>
             </div>
-            <h1 className="text-4xl md:text-6xl font-bold mb-4">
-              {project.title}
-            </h1>
+            <h1 className="text-4xl md:text-6xl font-bold mb-4">{title}</h1>
             <div className="flex flex-wrap gap-4">
               <a
-                href={project.live}
+                href={live}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center px-6 py-3 rounded-full bg-white text-black font-semibold hover:bg-gray-200 transition-colors"
@@ -64,15 +76,17 @@ function ProjectDetailsClient({ project }: { project: (typeof projects)[0] }) {
                 <ExternalLink className="w-4 h-4 mr-2" />
                 Live Demo
               </a>
-              <a
-                href={project.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center px-6 py-3 rounded-full border border-gray-700 hover:bg-gray-800 transition-colors"
-              >
-                <Github className="w-4 h-4 mr-2" />
-                Source Code
-              </a>
+              {github && (
+                <a
+                  href={github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center px-6 py-3 rounded-full border border-gray-700 hover:bg-gray-800 transition-colors"
+                >
+                  <Github className="w-4 h-4 mr-2" />
+                  Source Code
+                </a>
+              )}
             </div>
           </div>
         </div>
@@ -84,7 +98,7 @@ function ProjectDetailsClient({ project }: { project: (typeof projects)[0] }) {
             <section>
               <h2 className="text-2xl font-bold mb-4 text-white">Overview</h2>
               <p className="text-gray-400 leading-relaxed text-lg">
-                {project.longDescription}
+                {longDescription}
               </p>
             </section>
 
@@ -94,7 +108,7 @@ function ProjectDetailsClient({ project }: { project: (typeof projects)[0] }) {
                 Project Gallery
               </h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                {project.gallery?.map((img, i) => (
+                {gallery?.map((img, i) => (
                   <motion.button
                     key={i}
                     onClick={() => openLightbox(i)}
@@ -104,7 +118,7 @@ function ProjectDetailsClient({ project }: { project: (typeof projects)[0] }) {
                   >
                     <Image
                       src={img}
-                      alt={`${project.title} screenshot ${i + 1}`}
+                      alt={`${title} screenshot ${i + 1}`}
                       fill
                       className="object-cover group-hover:scale-105 transition-transform duration-500"
                       referrerPolicy="no-referrer"
@@ -126,10 +140,12 @@ function ProjectDetailsClient({ project }: { project: (typeof projects)[0] }) {
             {/* Key Features */}
             <section>
               <h2 className="text-2xl font-bold mb-4 text-white">
+                {/*  add a relavent icon */}
+                <ZapIcon className="w-5 h-5 text-emerald-400 inline-block mr-2" />
                 Key Features
               </h2>
               <ul className="space-y-3">
-                {project.features.map((feature, i) => (
+                {features.map((feature, i) => (
                   <li key={i} className="flex items-start text-gray-400">
                     <span className="flex-shrink-0 w-6 h-6 rounded-full bg-emerald-500/10 text-emerald-400 flex items-center justify-center mr-3 mt-0.5">
                       ✓
@@ -141,16 +157,14 @@ function ProjectDetailsClient({ project }: { project: (typeof projects)[0] }) {
             </section>
 
             {/* Challenges */}
-            {project.challenges && project.challenges.length > 0 && (
+            {challenges && challenges.length > 0 && (
               <section>
                 <div className="flex items-center gap-3 mb-6">
                   <ZapIcon className="w-5 h-5 text-amber-400" />
-                  <h2 className="text-2xl font-bold text-white">
-                    Challenges & Solutions
-                  </h2>
+                  <h2 className="text-2xl font-bold text-white">Challenges</h2>
                 </div>
                 <div className="space-y-4">
-                  {project.challenges.map((challenge, i) => (
+                  {challenges.map((challenge, i) => (
                     <motion.div
                       key={i}
                       initial={{ opacity: 0, y: 12 }}
@@ -202,7 +216,7 @@ function ProjectDetailsClient({ project }: { project: (typeof projects)[0] }) {
                 Technologies Used
               </h3>
               <div className="flex flex-wrap gap-2">
-                {project.tech.map((t) => (
+                {tech.map((t) => (
                   <span
                     key={t}
                     className="px-3 py-1.5 text-sm rounded-lg bg-gray-800 text-gray-300 border border-gray-700"

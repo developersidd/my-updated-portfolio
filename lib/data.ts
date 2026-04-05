@@ -38,7 +38,7 @@ export const projects: ProjectType[] = [
       "https://i.ibb.co.com/ymyLYyxp/profile-info.png",
       "https://i.ibb.co.com/60TTnfhJ/upload-video-modal.png",
       "https://i.ibb.co.com/GQqnLg2y/watch-later.png",
-      "https://i.ibb.co.com/LD4fvvwD/dashboard-stats.png",
+      "https://i.ibb.co.com/9mpzYrMF/screencapture-play-platform-vercel-app-dashboard-2026-04-01-01-36-13.png",
       "https://i.ibb.co.com/HDS4sKZq/my-videos.png",
       "https://i.ibb.co.com/N2cBqb7Y/Profile.png",
       "https://i.ibb.co.com/d01wRL21/search-result.png",
@@ -49,12 +49,16 @@ export const projects: ProjectType[] = [
     longDescription:
       "Developed a full-stack video-sharing platform replicating core YouTube functionalities such as video upload, playback, search, playlists, and subscriptions. Built with Next.js, Tailwind CSS, and Shadcn UI for a responsive frontend, and Express with MongoDB for backend services. Implemented real-time notifications using Socket.io and optimized data retrieval using aggregation pipelines. Integrated Cloudinary for scalable media storage and added PWA support for improved performance and accessibility.",
     tech: [
-      "      Next.js",
+      "Next.js",
       "Tailwind CSS",
       "React Virtualized",
       "Shadcn UI",
       "Cloudinary (for image & video storage)",
+      "PWA features (service workers, manifest.json)",
       "React Player",
+      "Socket.io (for real-time notifications)",
+      "MongoDB (with aggregation pipelines for optimized data retrieval)",
+      "Express.js",
     ],
     features: [
       "Custom authentication with secure session handling",
@@ -74,126 +78,196 @@ export const projects: ProjectType[] = [
       {
         title: "Real-time Notifications",
         description:
-          "Implementing real-time notifications for user interactions (likes, comments, subscriptions) was a significant challenge. I used Socket.io to establish a WebSocket connection between the client and server, allowing for instant updates without page refreshes. This required careful handling of connection states and ensuring that notifications were delivered reliably even under high load.",
-        solution:
-          "To ensure reliability, I implemented a retry mechanism on the client side to handle potential disconnections. Additionally, I optimized the server-side event handling to minimize latency and prevent bottlenecks during peak usage.",
+          "Self-learned and implemented Socket.io for real-time features",
+      },
+      {
+        title: "Cross-Domain Authentication",
+        description:
+          "Handled cross-domain authentication by designing API proxy routes in Next.js",
+      },
+      {
+        title: "Optimizing Video Data Retrieval",
+        description:
+          "Improved database performance by optimizing MongoDB aggregation queries",
       },
     ],
   },
   {
     id: "3",
-    title: "AI Content Generator",
+    title: "Ecommerce Django App",
     category: "Django",
-    image: "https://picsum.photos/seed/proj3/800/600",
+    image: "https://i.ibb.co.com/Jj5jpnj2/image.png",
+    fullSizeImage: "https://i.ibb.co.com/5xM6YXhG/siddik-commerce-django.png",
     gallery: [
-      "https://picsum.photos/seed/proj3_1/800/600",
-      "https://picsum.photos/seed/proj3_2/800/600",
-      "https://picsum.photos/seed/proj3_3/800/600",
+      "https://i.ibb.co.com/5xM6YXhG/siddik-commerce-django.png",
+      "https://i.ibb.co.com/dsnkGqhm/siddik-commerce-store.png",
+      "https://i.ibb.co.com/9mGTC908/siddik-commerce-django-product-details.png",
+      "https://i.ibb.co.com/PsQH3k5L/siddik-commerce-django-cart.png",
+      "https://i.ibb.co.com/Sw0NFxrM/siddik-commerce-django-checkout.png",
+      "https://i.ibb.co.com/r2KXKrw6/siddik-commerce-django-payment.png",
     ],
     description:
-      "SaaS platform leveraging Python and Django to generate marketing copy using LLMs.",
+      "A full-featured e-commerce web application built with Django, featuring product management, cart, order processing, secure payments, and multi-language support. Designed following scalable architecture and real-world business logic.",
     longDescription:
-      "This SaaS application utilizes advanced Large Language Models (LLMs) to automatically generate high-quality marketing copy, blog posts, and social media content. The backend is powered by Python and Django, providing a secure and scalable infrastructure. It integrates with OpenAI's API and uses Celery for asynchronous task processing to handle long-running generation requests without blocking the user interface.",
-    tech: ["Python", "Django", "PostgreSQL", "Celery", "Redis", "OpenAI API"],
-    features: [
-      "Integration with advanced LLMs",
-      "Asynchronous task processing (Celery)",
-      "Subscription-based billing (Stripe)",
-      "User workspace and document management",
-      "Customizable content templates",
+      "Developed a full-stack e-commerce platform using Django, implementing core functionalities such as product listings, categories, shopping cart, order management, and user authentication. Integrated multiple discount systems including flash sales, campaign offers, and product-level discounts. Added SSLCommerz payment gateway (test mode) for secure transactions and implemented bilingual support (English & Bangla) using Django internationalization tools and model translation. The project follows Django best practices for scalability, maintainability, and clean architecture.",
+    tech: [
+      "Python",
+      "Django",
+      "PostgreSQL",
+      "Payment Gateway (SSLCommerz)",
+      "Internationalization (Django i18n, django-modeltranslation)",
     ],
-    github: "https://github.com",
-    live: "https://example.com",
+    features: [
+      "User authentication and account management",
+      "Shopping cart and order management system",
+      "Before-login cart and after-login cart merging",
+      "Multiple discount systems (Flash Sale, Campaign, Product Sale)",
+      "Coupon discount system with unique codes and usage limits",
+      "SSLCommerz payment integration (test environment)",
+      "Product catalog with categories and filtering",
+      "Multi-language support (English & Bangla)",
+      "Customized Admin panel for All CRUD operations",
+      "Product review and rating system with purchase verification",
+      "Responsive UI for cross-device usability",
+      "Scalable backend using Django best practices",
+    ],
+    challenges: [
+      {
+        title: "Mastering Django ORM Relationships",
+        description:
+          "Gained deep understanding of Django ORM relationships (One-to-One, ForeignKey, Many-to-Many) and reverse querying",
+      },
+      {
+        title: "Implementing Complex Discount Logic",
+        description:
+          "Designed and implemented multiple discount systems with overlapping rules and priorities.",
+      },
+      {
+        title: "Handling Cart Merging Logic",
+        description:
+          "Implemented logic to merge pre-login cart items with post-login cart while handling duplicates and quantity updates.",
+      },
+      {
+        title: "Integrating SSLCommerz Payment Gateway",
+        description:
+          "Handled payment processing and callbacks securely using SSLCommerz's test environment by researching documentation and real-world implementations",
+      },
+      {
+        title: "Adding Multi-language Support",
+        description:
+          "Implemented bilingual support using Django's internationalization framework and model translation.",
+      },
+    ],
+    github: "https://github.com/developersidd/siddik-commerce-django",
+    live: "https://siddik-commerce-django.onrender.com/en/",
   },
   {
     id: "4",
-    title: "Social Media Dashboard",
-    category: "MERN",
-    image: "https://picsum.photos/seed/proj4/800/600",
+    title: "Dua Ruqya – Islamic Duas & Azkar Platform (Internship Project)",
+    category: "PERN",
+    image: "https://i.ibb.co.com/QFHYTy9n/dua-ruqya-home.png",
+    fullSizeImage: "https://i.ibb.co.com/fGSb4b9J/duaruqyah.png",
     gallery: [
-      "https://picsum.photos/seed/proj4_1/800/600",
-      "https://picsum.photos/seed/proj4_2/800/600",
-      "https://picsum.photos/seed/proj4_3/800/600",
+      "https://i.ibb.co.com/QFHYTy9n/dua-ruqya-home.png",
+      "https://i.ibb.co.com/bgLK9g8V/dua-ruqya-categoreies.png",
+      "https://i.ibb.co.com/fGSb4b9J/duaruqyah.png",
     ],
     description:
-      "Real-time analytics dashboard for social media accounts with beautiful data visualizations.",
+      "A web-based Islamic platform for accessing daily duas and azkar, built with Next.js and PostgreSQL. Features categorized navigation, an intuitive dashboard layout, and a custom-built dua detail page for a smooth reading experience.",
     longDescription:
-      "A centralized dashboard for monitoring and analyzing social media performance across multiple platforms. Built on the MERN stack, it uses Socket.io to push real-time updates to the client. The frontend features interactive charts and graphs built with D3.js and Recharts, providing users with actionable insights into their audience engagement, follower growth, and content performance.",
+      "Developed a web-based platform for accessing Islamic duas and azkar, organized by categories such as daily activities and routines. Built with Next.js and TypeScript, the application features a structured dashboard layout with category navigation, dua listings, and user settings. Designed and implemented a custom dua detail page to enhance readability and user experience. Initially used SQLite, then migrated to PostgreSQL (Neon) for better scalability and production readiness by converting and importing database dumps.",
     tech: [
-      "React",
+      "Next js",
       "Express",
-      "MongoDB",
-      "Socket.io",
-      "Recharts",
+      "PostgreSQL (Neon)",
+      "TypeScript",
       "Tailwind CSS",
     ],
     features: [
-      "Real-time data updates via WebSockets",
-      "Interactive data visualizations",
-      "Multi-platform integration (Twitter, Facebook, Instagram)",
-      "Customizable reporting dashboards",
-      "Automated email reports",
+      "Categorized duas and azkar for daily activities",
+      "Intuitive dashboard layout with category navigation",
+      "Custom dua detail page for enhanced readability",
+      "Database migration from SQLite to PostgreSQL (Neon)",
     ],
-    github: "https://github.com",
-    live: "https://example.com",
+    challenges: [
+      {
+        title: "Designing an Intuitive Dashboard Layout",
+        description:
+          "Created a user-friendly dashboard layout with clear category navigation and dua listings.",
+      },
+      {
+        title: "Database Integration and Management",
+        description:
+          "Learned to set up an Express server and integrate it with both SQLite and PostgreSQL databases.",
+      },
+      {
+        title: "Database Migration",
+        description:
+          "Migrated from SQLite to PostgreSQL (Neon) by converting the database dump and importing it into the new database.",
+      },
+    ],
+    github: "https://github.com/developersidd/duaruqyah.com",
+    live: "https://duaruqyah-com.vercel.app",
   },
   {
     id: "5",
-    title: "Food Delivery App",
+    // It's a real life client
+    title: "Alam – Tour Discovery & Booking Mobile App (Real Client Project)",
     category: "React Native",
-    image: "https://picsum.photos/seed/proj5/800/600",
+    image: "https://i.ibb.co.com/4RSs1pnm/Alam-hd-home.jpg",
     gallery: [
-      "https://picsum.photos/seed/proj5_1/800/600",
-      "https://picsum.photos/seed/proj5_2/800/600",
-      "https://picsum.photos/seed/proj5_3/800/600",
+      "https://i.ibb.co.com/4RSs1pnm/Alam-hd-home.jpg",
+      "https://i.ibb.co.com/KxqGxbVd/Alam-bookings-notifications-settings.png",
+      "https://i.ibb.co.com/BV7pFHyh/Alam-login-register.png",
     ],
     description:
-      "Mobile application for food ordering with live order tracking and payment processing.",
+      "A mobile tour booking app built with React Native, enabling users to discover, customize, and book tours with guides. Features include map-based travel visualization, multilingual support, and a seamless booking experience.",
     longDescription:
-      "A comprehensive food delivery solution comprising a customer app, a restaurant dashboard, and a delivery driver app. The customer app, built with React Native, offers a smooth browsing and ordering experience. It features real-time GPS tracking of deliveries, secure in-app payments, and a rating system. The backend is a microservices architecture built with Node.js and deployed on AWS.",
+      "Developed a mobile tour booking application using React Native and TypeScript, allowing users to explore, customize, and book tours across Saudi Arabia and beyond. The app features tour discovery, guide selection, and a multi-step booking system with validation. Integrated map-based visualization to display travel routes and locations, enhancing user experience. Implemented multilingual support and responsive design to ensure accessibility across devices. Focused on building a scalable and user-friendly interface with efficient state and data management.",
     tech: [
       "React Native",
-      "Redux",
-      "Node.js",
-      "MongoDB",
-      "Google Maps API",
-      "Stripe",
+      "TypeScript",
+      "React Navigation",
+      "TanStack Query",
+      "React Hook Form",
+      "AsyncStorage",
+      "react-native-size-matters",
+      "i18n",
     ],
     features: [
-      "Real-time GPS order tracking",
-      "Secure in-app payments",
-      "Restaurant and driver rating system",
-      "Push notifications for order updates",
-      "Complex routing and dispatch logic",
+      "Tour discovery with search, categories, and reviews",
+      "Multi-step booking system with validation",
+      "Tour guide selection for personalized experiences",
+      "Customizable tours with cart-based booking flow",
+      "User profiles with booking history tracking",
+      "Multi-language support (i18n)",
+      "Map integration with travel route visualization",
+      "Real-time location details and place insights",
+      "Responsive UI for multiple screen sizes",
+      "Settings management (language, notifications, profile)",
     ],
-    github: "https://github.com",
-    live: "https://example.com",
-  },
-  {
-    id: "6",
-    title: "Inventory Management",
-    category: "Django",
-    image: "https://picsum.photos/seed/proj6/800/600",
-    gallery: [
-      "https://picsum.photos/seed/proj6_1/800/600",
-      "https://picsum.photos/seed/proj6_2/800/600",
-      "https://picsum.photos/seed/proj6_3/800/600",
+    challenges: [
+      {
+        title:
+          "Learned React Native from scratch while building a production-level mobile app",
+        description:
+          "Gained proficiency in React Native development by building a complex tour booking app with features like map integration and multi-step forms.",
+      },
+      {
+        title: "Implementing Map-Based Travel Visualization",
+        description:
+          "Integrated Google Maps API to visualize travel routes and locations, enhancing the user experience.",
+      },
+      {
+        title:
+          "Achieved responsive design across devices using react-native-size-matters",
+        description:
+          "Ensured the app's UI adapts seamlessly to various screen sizes and resolutions by utilizing the react-native-size-matters library for responsive design.",
+      },
     ],
-    description:
-      "Enterprise inventory system with barcode scanning, reporting, and role-based access.",
-    longDescription:
-      "An enterprise-grade inventory management system designed to streamline warehouse operations. Built with Django and PostgreSQL, it provides a robust and reliable backend. The system supports barcode scanning for quick item lookup and updates, comprehensive reporting tools for analyzing stock levels and trends, and a granular role-based access control (RBAC) system to ensure data security.",
-    tech: ["Django", "Python", "React", "PostgreSQL", "Docker", "AWS S3"],
-    features: [
-      "Barcode scanning integration",
-      "Advanced reporting and analytics",
-      "Granular role-based access control (RBAC)",
-      "Automated low-stock alerts",
-      "Multi-warehouse support",
-    ],
-    github: "https://github.com",
+    github: "",
     live: "https://example.com",
   },
 ];
 
-export const categories = ["All", "MERN", "React Native", "Django"];
+export const categories = ["All", "MERN", "PERN", "React Native", "Django"];

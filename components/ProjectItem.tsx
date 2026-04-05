@@ -63,6 +63,8 @@ const ProjectItem = ({ project }: { project: ProjectType }) => {
             >
               <ExternalLink className="w-5 h-5" />
             </a>
+            {
+              github && (
             <a
               href={github}
               target="_blank"
@@ -71,6 +73,7 @@ const ProjectItem = ({ project }: { project: ProjectType }) => {
             >
               <Github className="w-5 h-5" />
             </a>
+            )}
           </div>
         </div>
         <div className="p-6 flex flex-col flex-grow">
