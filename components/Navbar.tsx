@@ -15,7 +15,6 @@ export function Navbar() {
           "backdrop-blur-sm",
           "shadow-lg",
           "border-b",
-          "h-18",
         );
       } else {
         navbar?.classList.remove(
@@ -23,7 +22,6 @@ export function Navbar() {
           "backdrop-blur-sm",
           "shadow-lg",
           "border-b",
-          "h-18",
         );
       }
     };
@@ -36,7 +34,12 @@ export function Navbar() {
     <motion.nav
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      className="fixed flex items-center top-0 left-0 right-0 z-50 border-gray-800 transition-[height] duration-300"
+      transition={{
+        ease: "easeInOut",
+        duration: 0.6,
+        delay: 0.2,
+      }}
+      className="fixed top-0 left-0 right-0 z-50  border-gray-800"
     >
       <div className="container md:mx-auto px-4 h-20 flex items-center justify-between w-screen">
         <div className="flex items-center space-x-2 text-white font-bold text-xl">
