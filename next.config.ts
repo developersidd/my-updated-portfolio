@@ -25,6 +25,7 @@ const nextConfig: NextConfig = {
   },
   output: 'standalone',
   transpilePackages: ['motion'],
+  allowedDevOrigins: ['http://localhost:3000', "192.168.0.110"],
 };
 
 export default nextConfig;

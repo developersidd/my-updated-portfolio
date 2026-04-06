@@ -35,7 +35,7 @@ export function Contact() {
   return (
     <section
       id="contact"
-      className="py-24 bg-black relative border-t border-gray-900"
+      className="py-14 md:py-24 bg-black relative border-t border-gray-900"
     >
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
@@ -56,7 +56,7 @@ export function Contact() {
             viewport={{ once: true }}
             className="space-y-12"
           >
-            <section className="px-6 max-w-3xl mx-auto">
+            <section className="md:px-6 max-w-3xl mx-auto">
               <div className="space-y-4">
                 <ContactCard
                   icon={Mail}
@@ -97,7 +97,7 @@ export function Contact() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="bg-gray-900/50 border border-gray-800 rounded-3xl p-8"
+            className="bg-gray-900/50 border border-gray-800 rounded-3xl p-5 md:p-7 lg:p-8  lg:max-w-lg md:mx-6 lg:mx-0"
           >
             {isSubmitSuccessful ? (
               <div className="h-full flex flex-col items-center justify-center text-center space-y-4 py-12">

@@ -1,111 +1,143 @@
-'use client';
+"use client";
 
-import { motion } from 'motion/react';
-import { Terminal } from 'lucide-react';
-import { useEffect, useState } from 'react';
+import { ArrowUpRight } from "lucide-react";
+import { motion } from "motion/react";
+import Image from "next/image";
+import ABSiddik from "../assets/images/ab-siddik.jpeg";
+const techStack = [
+  "React",
+  "Next.js",
+  "Node.js",
+  "Python",
+  "Django",
+  "React Native",
+  "TypeScript",
+  "MongoDB",
+];
 
-const codeSnippet = `> Initializing developer profile...
-> Loading skills...
-> [OK] MERN Stack loaded.
-> [OK] React Native loaded.
-> [OK] Python & Django loaded.
-> [OK] TypeScript & Redux loaded.
-> System ready.
-> Hello, World! I am a Full Stack Developer.`;
-
-export function Hero() {
-  const [text, setText] = useState('');
-  
-  useEffect(() => {
-    let i = 0;
-    const interval = setInterval(() => {
-      setText(codeSnippet.slice(0, i));
-      i++;
-      if (i > codeSnippet.length) clearInterval(interval);
-    }, 40);
-    return () => clearInterval(interval);
-  }, []);
-
+ function Hero() {
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black pt-20">
-      {/* Radiant Blur Backgrounds */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-emerald-900/10 via-black to-black" />
-      <div className="absolute top-1/4 left-1/4 w-[400px] h-[400px] bg-emerald-500/20 rounded-full blur-[100px] pointer-events-none animate-pulse" />
-      <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-cyan-500/20 rounded-full blur-[120px] pointer-events-none animate-pulse" style={{ animationDelay: '1s' }} />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-blue-500/10 rounded-full blur-[150px] pointer-events-none" />
-      
-      {/* Grid overlay */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#4f4f4f1a_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f1a_1px,transparent_1px)] bg-[size:24px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] pointer-events-none" />
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#080808] pt-[100px] sm:pt-36  pb-24">
+      <div className="absolute inset-0 w-full h-full  bg-[radial-gradient(ellipse_80%_60%_at_50%_-10%,rgba(16,185,129,0.07),transparent)] pointer-events-none" />
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff06_1px,transparent_1px),linear-gradient(to_bottom,#ffffff06_1px,transparent_1px)] bg-[size:32px_32px] [mask-image:radial-gradient(ellipse_70%_60%_at_50%_40%,#000_60%,transparent_100%)]" />
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-emerald-500/40 to-transparent" />
 
-      <div className="container mx-auto px-4 z-10 grid lg:grid-cols-2 gap-12 items-center">
-        <div className="space-y-8">
+      <div className="container mx-auto px-4 relative z-10 text-center">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.92 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6 }}
+          className="mb-8 flex flex-col items-center gap-4"
+        >
+          {/* Avatar */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
+            initial="initial"
+            whileHover="hovered"
+            className="relative group"
           >
-            <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-white mb-4">
-              Crafting <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-400">Digital</span> Experiences
-            </h1>
-            <p className="text-gray-400 text-lg md:text-xl max-w-xl">
-              Full Stack Developer specializing in MERN, React Native, Python, and Django. Building scalable applications from end to end.
-            </p>
-          </motion.div>
-
-          {/* CMD Window */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="rounded-xl overflow-hidden border border-gray-800 bg-black/50 backdrop-blur-md shadow-2xl relative z-20"
-          >
-            <div className="flex items-center px-4 py-3 border-b border-gray-800 bg-gray-900/80">
-              <div className="flex space-x-2">
-                <div className="w-3 h-3 rounded-full bg-red-500/80" />
-                <div className="w-3 h-3 rounded-full bg-yellow-500/80" />
-                <div className="w-3 h-3 rounded-full bg-green-500/80" />
-              </div>
-              <div className="mx-auto flex items-center text-xs text-gray-500 font-mono">
-                <Terminal className="w-3 h-3 mr-2" />
-                developer.exe
-              </div>
-            </div>
-            <div className="p-6 font-mono text-sm text-emerald-400 h-64 overflow-y-auto whitespace-pre-wrap bg-black/80">
-              {text}
-              <motion.span
-                animate={{ opacity: [1, 0] }}
-                transition={{ repeat: Infinity, duration: 0.8 }}
-                className="inline-block w-2 h-4 bg-emerald-400 ml-1 align-middle"
+            {/*  Add zoom effect on Image on hover div */}
+            <motion.div
+              variants={{
+                initial: { scale: 1 },
+                hovered: { scale: 1.03 },
+              }}
+              transition={{ duration: 0.3, ease: "easeInOut" }}
+              className="size-36  rounded-full  
+            border-4 border-[rgba(16,185,129,0.8)]
+            flex items-center justify-center text-2xl font-bold shadow-[0_0_40px_rgba(16,185,129,0.35)]"
+            >
+              <Image
+                src={ABSiddik}
+                alt="AB Siddik"
+                width={500}
+                height={500}
+                className="group-hover:scale-[107%] transition-transform size-full rounded-full object-cover border-4 border-[rgba(16,185,129,0.02)]"
               />
-            </div>
+            </motion.div>
+            {/* Online dot */}
+            <span className="absolute bottom-2.5 right-1.5 size-7  bg-black rounded-full border-8 border-[rgb(16,185,129)] " />
           </motion.div>
-        </div>
+          {/* Name */}
+        </motion.div>
 
-        {/* Animated 3D Model Representation */}
-        <div className="relative h-[500px] hidden lg:flex items-center justify-center perspective-[1200px]">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="max-w-4xl mx-auto"
+        >
+          <div className="inline-flex items-center px-3 py-1 rounded-full border border-emerald-500/30 bg-emerald-500/10 text-emerald-400 text-sm mb-8">
+            <span className="flex w-2 h-2 rounded-full bg-emerald-500 mr-2 animate-pulse" />
+            Available for new opportunities
+          </div>
+
+          <h1 className="text-4xl md:text-7xl font-bold tracking-tight text-white mb-6">
+            Building the future with <br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-cyan-400 to-blue-500">
+              Modern Technologies
+            </span>
+          </h1>
+
+          <p className="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto mb-10">
+            A passionate Full Stack Developer crafting seamless mobile and web
+            experiences using MERN, React Native, Python, and Django.
+          </p>
+          {/* CTA buttons */}
           <motion.div
-            animate={{
-              rotateX: [0, 360],
-              rotateY: [0, 360],
-            }}
-            transition={{
-              duration: 25,
-              repeat: Infinity,
-              ease: "linear"
-            }}
-            className="relative w-72 h-72 transform-style-3d"
-            style={{ transformStyle: 'preserve-3d' }}
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.38 }}
+            className="flex flex-wrap items-center justify-center gap-3 mb-10"
           >
-            {/* 3D Cube Faces */}
-            <div className="absolute inset-0 border border-emerald-500/30 bg-emerald-500/5 backdrop-blur-sm flex items-center justify-center text-emerald-400 font-mono text-3xl font-bold shadow-[0_0_30px_rgba(16,185,129,0.2)]" style={{ transform: 'translateZ(144px)' }}>REACT</div>
-            <div className="absolute inset-0 border border-cyan-500/30 bg-cyan-500/5 backdrop-blur-sm flex items-center justify-center text-cyan-400 font-mono text-3xl font-bold shadow-[0_0_30px_rgba(6,182,212,0.2)]" style={{ transform: 'rotateY(180deg) translateZ(144px)' }}>NODE</div>
-            <div className="absolute inset-0 border border-blue-500/30 bg-blue-500/5 backdrop-blur-sm flex items-center justify-center text-blue-400 font-mono text-3xl font-bold shadow-[0_0_30px_rgba(59,130,246,0.2)]" style={{ transform: 'rotateY(90deg) translateZ(144px)' }}>PYTHON</div>
-            <div className="absolute inset-0 border border-purple-500/30 bg-purple-500/5 backdrop-blur-sm flex items-center justify-center text-purple-400 font-mono text-3xl font-bold shadow-[0_0_30px_rgba(168,85,247,0.2)]" style={{ transform: 'rotateY(-90deg) translateZ(144px)' }}>DJANGO</div>
-            <div className="absolute inset-0 border border-yellow-500/30 bg-yellow-500/5 backdrop-blur-sm flex items-center justify-center text-yellow-400 font-mono text-3xl font-bold shadow-[0_0_30px_rgba(234,179,8,0.2)]" style={{ transform: 'rotateX(90deg) translateZ(144px)' }}>MONGO</div>
-            <div className="absolute inset-0 border border-red-500/30 bg-red-500/5 backdrop-blur-sm flex items-center justify-center text-red-400 font-mono text-3xl font-bold shadow-[0_0_30px_rgba(239,68,68,0.2)]" style={{ transform: 'rotateX(-90deg) translateZ(144px)' }}>REDUX</div>
+            <a href="#projects" className="group inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-white text-black text-sm font-semibold hover:bg-emerald-300 transition-colors duration-200 shadow-[0_0_30px_rgba(255,255,255,0.1)]">
+              
+              View Projects
+              <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+              
+            </a>
+            <a href="#contact" className="px-7 py-3.5 rounded-full border border-white/10 text-white/70 text-sm font-medium hover:border-white/25 hover:text-white transition-all duration-200">
+              Contact Me
+            </a>
           </motion.div>
-        </div>
+        </motion.div>
+        {/* ── Tech stack pills ── */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.5 }}
+          className="flex flex-wrap items-center justify-center gap-2 max-w-lg mb-10 mx-auto"
+        >
+          {techStack.map((tech, i) => (
+            <motion.span
+              key={tech}
+              initial={{ opacity: 0, y: 8 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.55 + i * 0.06 }}
+              className="px-3 py-1 rounded-full border border-white/[0.07] bg-white/[0.03] text-gray-400 text-xs font-mono hover:border-emerald-500/30 hover:text-emerald-400 transition-colors duration-200 cursor-default"
+            >
+              {tech}
+            </motion.span>
+          ))}
+        </motion.div>
       </div>
+      {/* ── Scroll hint ── */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1 }}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+      >
+        <motion.div
+          animate={{ y: [0, 6, 0] }}
+          transition={{ repeat: Infinity, duration: 1.6, ease: "easeInOut" }}
+          className="w-px h-10 bg-gradient-to-b from-emerald-400/60 to-transparent"
+        />
+        <span className="text-gray-700 text-[10px] tracking-widest uppercase">
+          Scroll
+        </span>
+      </motion.div>
     </section>
   );
 }
+export default Hero;

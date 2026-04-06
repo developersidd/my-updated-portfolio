@@ -21,7 +21,7 @@ export function About() {
             className="relative mx-auto w-full max-w-md aspect-square"
           >
             
-            <div className="absolute inset-1 rounded-[22px] overflow-hidden bg-gray-900 border-2 border-emerald-400">
+            <div className="absolute inset-1 rounded-[22px] overflow-hidden bg-gray-900 border-3 border-emerald-400">
               <Image
                 src={AbSiddik}
                 alt="Muhammad Abu Bakkar Siddik"
@@ -29,7 +29,7 @@ export function About() {
                 className="object-cover opacity-90 hover:opacity-100 transition-opacity duration-500"
                 referrerPolicy="no-referrer"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+              {/*<div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />*/}
             </div>
           </motion.div>
 
