@@ -9,7 +9,7 @@ import ProjectItem from './ProjectItem';
 export function Projects() {
   const [activeTab, setActiveTab] = useState('All');
 
-  const filteredProjects = projects.filter(p => activeTab === 'All' || p.category === activeTab);
+  const filteredProjects = projects.slice(1).filter(p => activeTab === 'All' || p.category === activeTab);
 
   return (
     <section className="py-24 bg-black relative border-t border-gray-900">

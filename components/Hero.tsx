@@ -28,7 +28,7 @@ const techStack = [
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6 }}
           className="mb-8 flex flex-col items-center gap-4"
-        >
+        >  
           {/* Avatar */}
           <motion.div
             initial="initial"
