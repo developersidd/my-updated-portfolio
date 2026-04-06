@@ -1,5 +1,5 @@
 "use client";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, cubicBezier, motion } from "framer-motion";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import Image from "next/image";
 import { useCallback, useEffect, useState } from "react";
@@ -46,13 +46,13 @@ function Lightbox({ images, initialIndex, title, onClose }: LightboxProps) {
       x: 0,
       opacity: 1,
       scale: 1,
-      transition: { duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] },
+      transition: { duration: 0.4, ease: cubicBezier(0.25, 0.46, 0.45, 0.94) },
     },
     exit: (dir: number) => ({
       x: dir > 0 ? "-60%" : "60%",
       opacity: 0,
       scale: 0.92,
-      transition: { duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] },
+      transition: { duration: 0.3, ease: cubicBezier(0.25, 0.46, 0.45, 0.94) },
     }),
   };
 
@@ -112,7 +112,7 @@ function Lightbox({ images, initialIndex, title, onClose }: LightboxProps) {
               <Image
                 src={images[current]}
                 alt={`${title} screenshot ${current + 1}`}
-                //fill // 
+                //fill //
                 className="object-fill h-full"
                 referrerPolicy="no-referrer"
                 priority
