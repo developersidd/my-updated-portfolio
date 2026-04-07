@@ -60,9 +60,8 @@ export function Navbar() {
             Contact
           </a>
         </div>
-        
         <a
-          href="https://drive.google.com/uc?export=download&id=1YfkXDgIzbQwmIOhaFxIoNcOju5SYwtEO"
+          href="https://drive.google.com/uc?export=download&id=1RHOqveHrDa9HGGjz_YWXakj58FYGkNqB"
           download
           className="px-4 py-2 rounded-full bg-white text-black text-sm font-semibold hover:bg-gray-200 transition-colors shadow-[0_0_30px_rgba(255,255,255,0.1)]"
         >
