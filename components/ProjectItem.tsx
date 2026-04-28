@@ -81,7 +81,7 @@ const ProjectItem = ({ project }: { project: ProjectType }) => {
             {category}
           </div>
           <h3 className="text-xl font-bold text-white mb-2">{title}</h3>
-          <p className="text-gray-400 text-sm mb-4 line-clamp-2 flex-grow">
+          <p className="text-gray-400 text-sm mb-4 flex-grow">
             {description}
           </p>
           <div className="flex flex-wrap gap-2 mb-6">
